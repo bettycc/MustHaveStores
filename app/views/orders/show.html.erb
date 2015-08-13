@@ -1,0 +1,54 @@
+
+
+<h3>Order List:</h3>
+
+
+<table class='table table-striped'>
+  <thead>
+    <tr>
+      <th >Order Detail</th>
+      <th width="60%"> </th>
+      <th> Edit</th>
+    </tr>
+  </thead> 
+  <tbody>
+      <tr>
+        <td>Order Date</td>
+        <td><%= @order.date%></td>
+        <td><%= link_to "Edit", "/orders/#{@order.id}/edit" %></td>
+      </tr>
+      <tr> 
+        <td>Customer Name</td>
+        <td><%= @order.name%></td>
+        <td><%= link_to "Edit", "/orders/#{@order.id}/edit" %></td>
+      </tr> 
+      <tr>
+        <td>Ordered Products</td> 
+        <td>
+          <% @order.products.each do |product|%>
+            <%= product.name%>
+            <%= image_tag product.photourl1, height: '100px'%>
+            <%=", " %>
+          <% end %>
+        </td>
+        <td><%= link_to "Edit", "/orders/#{@order.id}/edit" %></td>
+      </tr>
+      <tr>
+        <td>Total Price</td>
+        <td>
+          <% sum = 0 %>
+          <% @order.products.each do |product|%>
+            <%= product.price%>
+            <%=", " %>
+            <% sum = product.price + sum %>
+          <% end %>  
+            Total: <%= sum %>
+        </td>
+        <td><%= link_to "Edit", "/orders/#{@order.id}/edit" %></td>
+        </tr>
+        <tr><td>contact_info</td><td><%=@order.contact_info%></td><td><%= link_to "Edit", "/orders/#{@order.id}/edit" %></td></tr>
+        <tr><td>bill_info</td><td><%= @order.bill_info%></td><td><%= link_to "Edit", "/orders/#{@order.id}/edit" %></td></tr>
+        <tr><td>ship_info</td><td><%= @order.ship_info%></td><td><%= link_to "Edit", "/orders/#{@order.id}/edit" %></td></tr>
+        
+  </tbody>
+</table>

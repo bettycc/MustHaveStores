@@ -1,0 +1,43 @@
+User
+  name: string
+  email: string
+  password: string
+  admin: boolean(false)
+
+Store
+  name: string
+  kind: string
+  description: text
+  contact_info: string
+  photourl: text
+  open_date: string
+  is_featured: integer
+
+Product
+  name: string
+  store_id: integer
+  kind: string
+  price: integer
+  description: text
+  designer: string
+  photourl1: text
+  photourl2: text
+  photourl3: text
+  release_date: string
+  is_featured: integer
+  in_stock: integer
+  sold: integer
+
+Order
+  date: string
+  ship_day: string
+  #store_id: integer
+  #customer_id: integer
+  name: string
+  contact_info: text
+  bill_info: text
+  ship_info: text
+
+Orderitem
+  product_id: integer
+  order_id: integer

@@ -1,0 +1,29 @@
+
+<!-- Part1: right 2/3, pictures(big) -->
+
+   <div >
+     <h4><%= @product.name%></h4>
+       <nav>
+	     <%= @product.photourl1 %>
+	     <%= @product.photourl2 %>
+	     <%= @product.photourl3 %>
+       </nav>
+       <p> Product Description: </p>
+       <p> <%= @product.description %> </p>
+   </div>
+       
+
+<!-- Part2: left 1/3, description, price, overview, add to cart, by lists -->
+   <div >
+     <h5> Overview: <%= @product.name %>  </h5>
+       <ul>
+          <li> <%= @product.kind%> </li>
+          <li> <%= number_to_currency @product.price %> </li>
+          <li> <%= @product.designer %> </li>
+          <li> <%= @product.release_date%> </li>
+          <li> <%= @product.in_stock %> </li>
+          <li> <%= @product.sold %> </li>
+       </ul>
+   </div>
+
+<!-- Part3: beneath reviews, related_items -->

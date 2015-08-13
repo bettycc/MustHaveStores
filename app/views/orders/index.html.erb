@@ -1,0 +1,72 @@
+<!-- Part1: List all the order of this store -->
+<!-- Part2: Make a selection, you can choose different oder, order date, item name, customer name -->
+<!-- Part3: Make a search buttom, we can use key word to search the order information -->
+
+<h3>Order Lists:</h3>
+
+<p><%= link_to "Add a new order", "/orders/new" %></p>
+<!--Show all the orders -->
+<p><%= @orders.count %> orders shown.</p>
+
+<!-- Add an search -->
+<nav>  
+  <form action="/orders" role="search">   
+        <input value="<%= params[:keyword3] %>" name="keyword3" type="text" placeholder="Search orders">
+        <button type="submit">Search</button>
+  </form>
+</nav>
+
+  <ul>
+    
+    <li><a href="#">By Order Date (Latest)</a></li>
+    <li><a href="#">By Order Date (Oldest)</a></li>
+    <li><a href="#">By Customer Name (Alphabetically)</a></li>
+  </ul>
+
+
+<table class='table table-striped'>
+  <thead>
+    <tr>
+      <th >Order Date</th>
+      <th >Customer Name</th>
+      <th width="30%">Ordered Products</th>
+      <th width="30%">Total Price</th>
+      <th width="30%">contact_info</th>
+      <th width="30%">bill_info</th>
+      <th width="30%">ship_info</th>
+      <th> Delete</th>
+      <th> Edit</th>
+    </tr>
+  <tbody>
+    <% @orders.each do |order| %>
+      <tr>
+        <td>
+          <%= link_to order.date, "/orders/#{order.id}" %>
+        </td>
+        <td>
+          <%= link_to order.name, "/orders/#{order.id}" %>
+        </td>
+        <td>
+          <% order.products.each do |product|%>
+            <%= link_to product.name, "/products/#{product.id}"%>
+            <%=", " %>
+          <% end %>
+        </td>
+        <td>
+          <% sum = 0 %>
+          <% order.products.each do |product|%>
+            <%= link_to product.price, "/products/#{product.id}"%>
+            <%=", " %>
+            <% sum = product.price + sum %>
+          <% end %>  
+            Total: <%= sum %>
+        </td>
+        <td><%= order.contact_info%></td>
+        <td><%= order.bill_info%></td>
+        <td><%= order.ship_info%></td>
+        <td><%= link_to "Delete", "/orders/#{order.id}", :method => "delete" %></td>
+        <td><%= link_to "Edit", "/orders/#{order.id}/edit" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

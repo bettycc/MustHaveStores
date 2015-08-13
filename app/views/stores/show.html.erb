@@ -1,0 +1,78 @@
+
+
+
+<div>
+    <p><%= image_tag @store.photourl %><p>
+	  <p><%= @store.description %>
+	  <h4><%= @store.name %></h4><%= link_to "(edit)", "/stores/#{@store.id}/edit"%></p>
+  </div>
+
+  <!-- Part3 : Serach products of the store, Right Top, by using a table with 1x1, 
+    i should build a new router product_search, action show-->
+  <div>
+  <table align="right">
+    <tbody width="60%">
+      <form action="/stores/<%= @store.id %>" data-no-turbolink="true">
+  	    <input value="<%= params[:keyword2]%>" name="keyword2" type="text" placeholder="Search products in store">
+  	    <input type="submit" value="Search">
+      </form>
+    </tbody>
+  </table>
+  </div>
+
+<div>
+<p></p>
+<p></p>  
+</div>
+
+<!-- Part2: Sections, build a table on the left side, with store's sectios, review, open date, contact information-->
+<div>
+  <table>
+	  <thead>
+		  <th width="30%">Stores Information</th>
+	  </thead>
+	  <tbody>
+	    <tr>
+			<td>Store open date: <%= @store.open_date%></td>
+		</tr>
+		<tr>
+			<td>Have a Question?<%= @store.contact_info %></td>
+		</tr>
+	  </tbody>
+  </table>
+</div>
+
+<div>
+  
+  
+</div>
+
+<!-- Part4: List all the products of the store-->
+<h4>Products at <%= @store.name %></h4>
+<h5><%= link_to "Add a new product", "/products/new" %></h5>
+<div>  
+  <table class='table table-striped'>
+   <thead>
+     <th width="30%">Product name</th>
+     <th width="30%">Product Pic</th>
+     <th>Product Price</th>
+     <th>Delete</th>
+   </thead>
+   <tbody>
+    <% @products.each do |product| %>
+    <tr>
+      <td><%= link_to product.name, "/products/#{product.id}" %> </td> 
+      <td><%= image_tag product.photourl1, size: '200x200' %></td>
+      <td><%= number_to_currency product.price %></td>
+      <td><%= link_to "Delete", "/products/#{product.id}", :method => "delete" %></td>
+    </tr>
+    
+     <% end %>
+   </tbody>
+   </table>
+</div>
+
+
+</body>
+</html>
+

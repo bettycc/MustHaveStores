@@ -1,0 +1,67 @@
+<h3>Edit Order</h3>
+
+<%=form_tag "/orders/#{@order.id}", :method => "patch" do%>
+  
+<div>
+  <p>  </p>
+</div>
+
+<h4>Order Detail</h4>  
+  <div>
+    <label>Order Date: </label>
+    <input type="string" name="date" value="<%= @order.date%>">
+  </div>
+  
+  <div>
+    <label>Customer Name: </label>
+    <input type="string" name="name" value="<%= @order.name%>">
+  </div>
+  
+  <div>
+    <label>Ordered Products: </label>
+      <% @order.products.each do |product|%>
+            <div>
+              <%= product.name%>
+            </div>
+            <div>
+              <%= image_tag product.photourl1, height: '100px'%>
+            </div>
+            <div> 
+              <%#= link_to "(delete item)", "/orders/#{order.id}", :method => "delete" %>
+            </div>
+            <div>
+            <p>  </p>
+            </div>
+      <% end %>
+  </div>      
+     
+  <div>
+    <label>Total Price: </label>
+      <% sum = 0 %>
+          <% @order.products.each do |product|%>
+            <%= product.name%>
+            <% sum = product.price + sum %>
+            <%=", " %>
+          <% end %>  
+            Total: <input type="integer" name="sum" value="<%= sum %>"> 
+  </div>   
+       
+  <div>
+    <label>Contact information: </label>
+    <input type="string" name="contact_info" value="<%= @order.contact_info%>">
+  </div>   
+
+  <div>
+    <label>Billing information: </label>
+    <input type="string" name="bill_info" value="<%= @order.bill_info%>">
+  </div>  
+
+  <div>
+    <label>Shiping information: </label>
+    <input type="string" name="ship_info" value="<%= @order.ship_info%>">
+  </div>    
+  
+  <div>
+    <input type="submit" value="update">
+  </div>
+<%end%>

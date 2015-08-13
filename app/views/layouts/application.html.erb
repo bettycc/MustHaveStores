@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Final2</title>
+  <%= stylesheet_link_tag "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css" %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  
+  <%= csrf_meta_tags %>
+
+
+  <style>
+    h1 {
+      border-bottom: solid 3px gray;
+      margin-bottom: 24px;
+    }
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-default">
+    <div class="container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <h1><a class="navbar-brand" href="/">ShopsShops</a></h1>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          
+          <li><a href="/stores">Stores</a></li>
+          <li><a href="/products">Products</a></li>
+          <li><a href="/orders">Orders</a></li>
+         
+          
+          <!-- Search products and shops together-->
+          <form action="/stores" class="navbar-form navbar-left" role="search">
+            <div class="form-group">
+              <input value="<%= params[:keyword] %>" name="keyword" type="text" class="form-control" placeholder="Search for shops">
+            </div>
+            <button type="submit" class="btn btn-default">Search</button>
+          </form>
+        </ul>
+
+        <!-- Add a 'Browse' function, sort ny store.kind, and an all stores option
+             i should build a new router category, action show
+        <div>
+          <form action="/stores">
+            <select name="kind">
+              <option > Browse </option>
+              <option value="Crafty">Crafty</option>
+              <option value="Jewelry">Jewelry</option>
+              <option value="Arts">Arts</option>
+            </select>
+
+          </form>
+        </div>-->
+        
+        <ul class="nav navbar-nav navbar-right">
+          <% if session[:user_id] %>
+            <li>Howdy, <%= User.find(session[:user_id]).name %></li>
+          <% end %>
+          <li><a href="/users/new">Sign Up</a></li>
+          <li><a href="/sessions/new">Sign In</a></li>
+          <li><a href="/account">My Account</a></li>
+          <li><a href="/logout">Sign Out</a></li>
+        </ul>
+
+        <!-- Add a Cart sign-->
+
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+
+    <% if flash[:notice].present? %>
+      <div class="alert alert-info">
+        <%= flash[:notice] %>
+      </div>
+    <% end %>
+    <%= yield %>
+</div>
+
+</body>
+</html>

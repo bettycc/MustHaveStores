@@ -1,0 +1,57 @@
+<h3>Add a New Order</h3>
+
+<%=form_tag "/orders" do%>
+  
+<div>
+  <p>  </p>
+</div>
+
+<h4>Order Detail</h4>  
+  
+  <div>
+    <label>Order Date: </label>
+    <input type="string" name="date" placeholder="date">
+  </div>
+  
+  <div>
+    <label>Customer Name: </label>
+    <input type="string" name="name" placeholder="name">
+  </div>
+  
+  <div>
+    <label>Ordered Products: </label>
+        <div>
+          <p> Product name: </p>
+          <input type="string" name="name" placeholder="product name">
+        </div>
+        <div>
+          <p> Product Photo URL: </p>
+          <input type="text" name="photourl1" placeholder="product photo URL">
+        </div>
+        <div>
+          <p> Product Price: </p>
+          <input type="integer" name="price" placeholder="product price">
+        </div>
+  </div>       
+       
+  <div>
+    <label>Contact information: </label>
+    <input type="string" name="contac_info" >
+  </div>   
+
+  <div>
+    <label>Billing information: </label>
+    <input type="string" name="bill_info" >
+  </div>  
+
+  <div>
+    <label>Shiping information: </label>
+    <input type="string" name="ship_info">
+  </div>    
+  
+  <div>
+    <input type="submit" value="Add">
+  </div>
+
+<%end%>
+

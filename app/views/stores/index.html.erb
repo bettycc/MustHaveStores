@@ -1,0 +1,47 @@
+
+<!--
+<% #if session["history"] %>
+  <p><small><%#= link_to "Clear My Viewing History", "#" %></small></p>
+  <div class="recent clearfix">
+    <h4>Your Recently Viewed Stores</h4>
+    <%# recent_stores = Store.find(session["history"]) %>
+    <%# recent_stores.each do |store| %>
+      <%#= link_to image_tag(store.photourl, height: '200px'), store %>
+    <%# end %>
+  </div>
+<%# end %>
+-->
+
+<small>
+    <%= link_to "Add a new store", "/stores/new" %>
+</small>
+
+
+<p><%= @stores.count %> stores shown.</p>
+
+<table class='table table-striped'>
+  <thead>
+    <tr>
+      <th width="30%">Store name</th>
+       <th width="60%"></th>
+      <th>Store type</th>
+      <th></th>
+      <th></th>
+    </tr>
+  <tbody>
+    <% @stores.each do |store| %>
+      <tr>
+        <td>
+          <%= link_to store.name, "/stores/#{store.id}" %>
+        </td>
+        <td>
+           <%= image_tag store.photourl %>
+        </td>
+        <td><%= store.kind %></td>
+
+        <td><%= link_to "Delete", "/stores/#{store.id}", :method => "delete" %></td>
+        <td><%= link_to "Edit", "/stores/#{store.id}/edit" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

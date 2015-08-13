@@ -1,0 +1,49 @@
+
+
+<h3>Add a new Store</h3>
+
+ <!-- <form action="/stores/create"> -->
+ <%= form_tag "/stores" do%>
+
+	<div>
+		<label>Store name: </label>
+		<input type="string" name="name">
+	</div>
+
+    <div><!-- Create a selection, to pick the type of the store-->
+        <label>Store kind: </label>
+        <select name="kind">
+        	<option value="Crafty">Crafty</option>
+        	<option value="Jewlery">Jewlery</option>
+        	<option value="Arts">Arts</option>
+        </select>
+    </div>
+
+
+    <div>
+		<label>Store Photo URL: </label>
+		<input type="text" name="photourl">
+	</div>
+
+	<div>
+		<label>Store Contact information: </label>
+		<input type="string" name="contact_info">
+	</div>
+
+	<div>
+		<label>Store open date: </label>
+		<input type="string" name="contact_info">
+	</div>
+
+	
+	<div>
+		<label>Store description: </label>
+		<textarea type="text" name="description" cols="80" rows="3"></textarea>
+	</div>
+        
+	<div>
+		<input type="submit" value="Add">
+	</div>
+
+ <!-- </form> -->
+ <%end%>
