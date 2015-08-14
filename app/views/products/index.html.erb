@@ -1,7 +1,7 @@
 <h4> Products index</h4>
 
 <small>
-    <%#= link_to "Add a new product", "/products/new" %>
+    <%= link_to "Add a new product", "/products/new" %>
 </small>
 
 <p><%= @products.count %> products shown.</p>
@@ -25,7 +25,7 @@
         <td><%= link_to product.store.name, "/stores/#{product.store_id}"%></td>
         <td><%= product.price %></td>
         <td><%= product.release_date%></td>
-        <td><%= link_to "Delete", "/products/#{product.store_id}", :method => "delete" %></td>
+        <td><%= link_to "Delete", "/products/#{product.id}", :method => "delete" %></td>
        
       </tr>
     <% end %>

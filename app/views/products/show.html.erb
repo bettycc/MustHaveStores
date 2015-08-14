@@ -2,7 +2,8 @@
 <!-- Part1: right 2/3, pictures(big) -->
   
    <div >
-     <h4>Product name: <%= @product.name%></h4>
+     <h4>Product name: </h4>
+     <p><%= @product.name%></p>
      <p><%= link_to "(edit)", "/products/#{@product.id}/edit" %></p>
        <nav>
 	     <%= image_tag @product.photourl1 , size: '200x200'%>

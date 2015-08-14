@@ -27,7 +27,7 @@ class OrdersController < ApplicationController
         @order.bill_info = params["bill_info"]
         @order.ship_info = params["ship_info"]
         @order.save
-        redirect_to "/orders/index"
+        redirect_to "/orders"
     end
 
     def edit
@@ -49,6 +49,6 @@ class OrdersController < ApplicationController
     def destroy
     	@order = Order.find_by(:id => params["id"])
     	@order.delete
-    	redirect_to "/orders/index"
+    	redirect_to "/orders"
     end
 end
