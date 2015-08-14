@@ -4,7 +4,7 @@
 <div>
     <p><%= image_tag @store.photourl %><p>
 	  <p><%= @store.description %>
-	  <h4><%= @store.name %></h4><%= link_to "(edit)", "/stores/#{@store.id}/edit"%></p>
+	  <h4><%= @store.name %><%= link_to "(edit)", "/stores/#{@store.id}/edit"%></h4></p>
   </div>
 
   <!-- Part3 : Serach products of the store, Right Top, by using a table with 1x1, 

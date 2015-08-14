@@ -3,6 +3,7 @@
   
    <div >
      <h4>Product name: <%= @product.name%></h4>
+     <p><%= link_to "(edit)", "/products/#{@product.id}/edit" %></p>
        <nav>
 	     <%= image_tag @product.photourl1 , size: '200x200'%>
 	     <%= image_tag @product.photourl2 , size: '200x200'%>

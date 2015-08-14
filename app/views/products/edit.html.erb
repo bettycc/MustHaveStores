@@ -3,10 +3,10 @@
 <h3>Edit Product</h3>
 
 
-<% form_tag "/products/#{@product.id}" , :method => "patch" do %>
+<%= form_tag "/products/#{@product.id}" , :method => "patch" do %>
 
 <!-- Part1: right 2/3, pictures(big) -->
-<h4>Product name: <input type="string" name="name" value="<%= @product.name%>"></h4>
+<h4>Product name: <input type="string" name="name" value="<%#= @product.name%>"></h4>
 
   <p> <input type="text" name="photourl1" value="<%= @product.photourl1 %>"> </p>
   <p> <input type="text" name="photourl2" value="<%= @product.photourl2 %>"> </p>
@@ -27,6 +27,10 @@
   <li> Product number in stock: <input type="integer" name="in_stock" value="<%= @product.in_stock %>" > </li>
   <li> Product number sold: <input type="integer" name="sold" value="<%= @product.sold %>"> </li>
 </ul>
+
+<div>
+    <input type="submit" value="update">
+</div>
 
 
 <% end %>
