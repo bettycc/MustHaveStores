@@ -1,14 +1,7 @@
-class ProductsController < ApplictionController
+class ProductsController < ApplicationController
 
 	def index
-        #@products = Product.order("name asc")
-        #if params["keyword2"].present?
-        #   k=params["keyword2"].strip
-        #    @products = Product.where("name LIKE '%#{k}%'")
-        #else
-        #    @products = Product.where("name asc")
-        #end
-        #redirect_to "/stores/#{@stores.id}"
+        @products = Product.order("name asc")
 	end
 
 	def show
@@ -21,8 +14,8 @@ class ProductsController < ApplictionController
     end
 
     def create
-    	@product = Product.new
-    	@product.name = params["name"]
+	    @product = Product.new
+	    @product.name = params["name"]
     	@product.kind = params["kind"]
         @product.price = params["price"]
         @product.designer = params["designer"]
@@ -32,9 +25,11 @@ class ProductsController < ApplictionController
         @product.release_date = params["release_date"]
         @product.photourl1 = params["photourl1"]
         @product.photourl2 = params["photourl2"]
-        @product.photourl3 = params["photourl3"]
+        @product.photourl3 = params["photourl3"] 
+        #if @product.store!= nil     
         @product.save
         redirect_to "/stores/#{@product.store_id}"
+        #end
     end
 
     def edit
@@ -58,9 +53,10 @@ class ProductsController < ApplictionController
         redirect_to "/products/#{@product.id}"
     end
 
-    def delete
-    	@product = Product.find_by(:id => params["id"])
+    def destroy
+        @product = Product.find_by(:id => params["id"])
     	@product.delete
+        redirect_to "/products"
     end
 
 

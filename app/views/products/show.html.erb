@@ -1,12 +1,12 @@
 
 <!-- Part1: right 2/3, pictures(big) -->
-
+  
    <div >
-     <h4><%= @product.name%></h4>
+     <h4>Product name: <%= @product.name%></h4>
        <nav>
-	     <%= @product.photourl1 %>
-	     <%= @product.photourl2 %>
-	     <%= @product.photourl3 %>
+	     <%= image_tag @product.photourl1 , size: '200x200'%>
+	     <%= image_tag @product.photourl2 , size: '200x200'%>
+	     <%= image_tag @product.photourl3 , size: '200x200'%>
        </nav>
        <p> Product Description: </p>
        <p> <%= @product.description %> </p>
@@ -17,13 +17,14 @@
    <div >
      <h5> Overview: <%= @product.name %>  </h5>
        <ul>
-          <li> <%= @product.kind%> </li>
-          <li> <%= number_to_currency @product.price %> </li>
-          <li> <%= @product.designer %> </li>
-          <li> <%= @product.release_date%> </li>
-          <li> <%= @product.in_stock %> </li>
-          <li> <%= @product.sold %> </li>
+          <li> Product kind: <%= @product.kind%> </li>
+          <li> Product price: <%= number_to_currency @product.price %> </li>
+          <li> Product designer: <%= @product.designer %> </li>
+          <li> Product release date: <%= @product.release_date%> </li>
+          <li> Product number in stock: <%= @product.in_stock %> </li>
+          <li> Product sold: <%= @product.sold %> </li>
        </ul>
    </div>
+
 
 <!-- Part3: beneath reviews, related_items -->

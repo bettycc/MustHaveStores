@@ -4,13 +4,15 @@
 
 
 <form action="/products/create">
+<%#= form_tag "/products" do%>
 
 <!-- Part1: right 2/3, pictures(big) -->
-  <h4>Product name: <input type="string" name="name" ></h4>
+  <p>Product name: </p>
+  <p><input type="string" name="name" ></p>
     
-	<p> <input type="text" name="photourl1" > </p>
-	<p> <input type="text" name="photourl2" > </p>
-	<p> <input type="text" name="photourl3" > </p>
+	<p> Product photo URL 1:<input type="text" name="photourl1" > </p>
+	<p> Product photo URL 2:<input type="text" name="photourl2" > </p>
+	<p> Product photo URL 3:<input type="text" name="photourl3" > </p>
    
 
     <p> Product Description: </p>
@@ -20,6 +22,7 @@
 
   <h5> Overview: </h5>
     <ul>
+      <li> Store: </li>
       <li> Product type: <input type="string" name="kind"> </li>
       <li> Product price: <input type="integer" name="price" > </li>
       <li> Product designer: <input type="string" name="designer"> </li>
@@ -28,6 +31,9 @@
       <li> Product number sold: <input type="integer" name="sold"> </li>
     </ul>
 
+  <input type="submit" value="Add">
+
 
 </form>
+<%# end %>
 

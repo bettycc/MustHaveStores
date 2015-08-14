@@ -1,1 +1,33 @@
-<h4> Product index</h4>
+<h4> Products index</h4>
+
+<small>
+    <%= link_to "Add a new product", "/products/new" %>
+</small>
+
+<p><%= @products.count %> products shown.</p>
+
+<table class='table table-striped'>
+  <thead>
+    <tr>
+      <th>Product name</th>
+      <th>Product type</th>
+      <th>Belong to (store)</th>
+      <th>Price</th>
+      <th>Release date</th>
+      <th>Delete</th>
+      <th>Edit</th>
+    </tr>
+  <tbody>
+    <% @products.each do |product| %>
+      <tr>
+        <td><%= link_to product.name, "/products/#{product.id}" %></td>
+        <td><%= product.kind %></td>
+        <td><%= link_to product.store.name, "/stores/#{product.store_id}"%></td>
+        <td><%= product.price %></td>
+        <td><%= product.release_date%></td>
+        <td><%= link_to "Delete", "/products/#{product.store_id}", :method => "delete" %></td>
+        <td><%= link_to "Edit", "/products/#{product.store_id}/edit" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
