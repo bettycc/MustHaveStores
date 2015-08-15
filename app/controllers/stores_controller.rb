@@ -3,7 +3,7 @@ class StoresController < ApplicationController
 	def index
         if params["keyword"].present?
             k = params["keyword"].strip
-            @stores = Store.where("name LIKE '%#{k}%'")
+            @stores = Store.where("name LIKE ?", "%#{k}%")
         else
             @stores = Store.all
         end
