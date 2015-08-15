@@ -43,8 +43,8 @@ class StoresController < ApplicationController
         #end
 
         #record the recent clicks
-        session["history"] ||= []
-        session["history"] << @store.id
+        #session["history"] ||= []
+        #session["history"] << @store.id
         
         
     end
