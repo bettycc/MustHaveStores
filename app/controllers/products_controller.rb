@@ -25,8 +25,9 @@ class ProductsController < ApplicationController
         @product.release_date = params["release_date"]
         @product.photourl1 = params["photourl1"]
         @product.photourl2 = params["photourl2"]
-        @product.photourl3 = params["photourl3"] 
-        #if @product.store!= nil     
+        @product.photourl3 = params["photourl3"]
+        #@store = Store.find_by(:id => params["id"]) 
+        #if @product.store_id!= nil    
         @product.save
         redirect_to "/stores/#{@product.store_id}"
         #end

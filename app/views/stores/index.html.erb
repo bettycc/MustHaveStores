@@ -1,16 +1,16 @@
 
-<!--
-<% #if session["history"] %>
+
+<% if session["history"] %>
   <p><small><%#= link_to "Clear My Viewing History", "#" %></small></p>
   <div class="recent clearfix">
     <h4>Your Recently Viewed Stores</h4>
-    <%# recent_stores = Store.find(session["history"]) %>
-    <%# recent_stores.each do |store| %>
-      <%#= link_to image_tag(store.photourl, height: '200px'), store %>
-    <%# end %>
+    <% recent_stores = Store.find(session["history"]) %>
+    <% recent_stores.each do |store| %>
+      <%= link_to image_tag(store.photourl, size: '20px'), store %>
+    <% end %>
   </div>
-<%# end %>
--->
+<% end %>
+
 
 <small>
     <%= link_to "Add a new store", "/stores/new" %>
