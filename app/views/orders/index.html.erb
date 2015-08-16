@@ -4,7 +4,16 @@
 
 <h3>Order Lists:</h3>
 
-<p><%= link_to "Add a new order", "/orders/new" %></p>
+<% if session[:user_id] %>
+    <small>
+      <a class="btn btn-success pull-right" href="/orders/new">
+        Add a New Order</a>
+    </small>
+  <% else %>
+    <p>Sign In to Add Orders</p>
+  <% end %>
+
+<p><%#= link_to "Add a new order", "/orders/new" %></p>
 <!--Show all the orders -->
 <p><%= @orders.count %> orders shown.</p>
 
