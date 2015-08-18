@@ -3,8 +3,8 @@
 <h3>Add a new Product</h3>
 
 
-<form action="/products/create">
-<%#= form_tag "/products" do%>
+<!--<form action="/products/create">-->
+<%= form_tag products_path, method: "post" do %>
 
 <!-- Part1: right 2/3, pictures(big) -->
   <p>Product name: </p>
@@ -16,13 +16,19 @@
    
 
     <p> Product Description: </p>
-    <p> <input type="text" name="description"> </p>
+    <textarea type="text" name="description" cols="80" rows="3" ></textarea>
 
 <!-- Part2: left 1/3, description, price, overview, add to cart, by lists -->
 
   <h5> Overview: </h5>
     <ul>
-      <li> Store: </li>
+      <li> Store: 
+      <select name = "store_id">
+      <% Store.all.each do |store| %>
+          <option value="<%=store.id%>"><%=store.name%></option>
+      <% end %>
+      </select>
+      </li>
       <li> Product type: <input type="string" name="kind"> </li>
       <li> Product price: <input type="integer" name="price" > </li>
       <li> Product designer: <input type="string" name="designer"> </li>
@@ -34,6 +40,6 @@
   <input type="submit" value="Add">
 
 
-</form>
-<%# end %>
+<!-- </form> -->
+<% end %>
 

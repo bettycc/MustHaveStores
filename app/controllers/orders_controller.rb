@@ -3,10 +3,17 @@ class OrdersController < ApplicationController
 	def index
         if params["keyword3"].present?
             k = params["keyword3"].strip
-            @orders = Order.where("date like '%#{k}%'")
+            @orders = Order.where("date LIKE ?","%#{k}%")
+            #@orders = Order.where(:date => params["k"],:name => params["k"])
         else
             @orders = Order.all
         end
+        
+        @orders = @orders.page(params[:page]).per(3)
+        #@product = Product.find_by(:id => params["id"]) 
+        #if  @product.present?
+        #    @orders = @product.orders.where(:id => params["id"])
+        #end
 
 	end
 

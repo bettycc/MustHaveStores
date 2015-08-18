@@ -2,6 +2,7 @@ class ProductsController < ApplicationController
 
 	def index
         @products = Product.order("name asc")
+        @products = @products.page(params[:page]).per(5)
 	end
 
 	def show
@@ -20,6 +21,7 @@ class ProductsController < ApplicationController
     def create
 	    @product = Product.new
 	    @product.name = params["name"]
+        @product.store_id = params["store_id"]
     	@product.kind = params["kind"]
         @product.price = params["price"]
         @product.designer = params["designer"]
@@ -30,8 +32,9 @@ class ProductsController < ApplicationController
         @product.photourl1 = params["photourl1"]
         @product.photourl2 = params["photourl2"]
         @product.photourl3 = params["photourl3"]
+        
         #@store = Store.find_by(:id => params["id"]) 
-        #if @product.store_id!= nil    
+        #if @product.store_id!= nil
         @product.save
         redirect_to "/stores/#{@product.store_id}"
         #end
@@ -39,9 +42,11 @@ class ProductsController < ApplicationController
 
     def edit
     	@product = Product.find_by(:id => params["id"])
+        @product.store_id = params["store_id"]
     end
 
     def update
+        puts "hello"
     	@product = Product.find_by(:id => params["id"])
     	@product.name = params[:name]
     	@product.kind = params[:kind]

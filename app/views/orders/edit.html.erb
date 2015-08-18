@@ -43,7 +43,7 @@
             <% sum = product.price + sum %>
             <%=", " %>
           <% end %>  
-            Total: <input type="integer" name="sum" value="<%= sum %>"> 
+            Total: <%= number_to_currency sum %>
   </div>   
        
   <div>

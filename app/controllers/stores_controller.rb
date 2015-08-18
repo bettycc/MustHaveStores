@@ -7,10 +7,13 @@ class StoresController < ApplicationController
         else
             @stores = Store.all
         end
+
+        @stores = @stores.page(params[:page]).per(5)
 	end
 
     def new
-    	render "new"
+    	#render "new"
+        @store = Store.new
     end
 
     def create
@@ -22,8 +25,11 @@ class StoresController < ApplicationController
     	@store.contact_info = params["contact_info"]
     	@store.open_date = params["open_date"]
         @store.is_featured =params["is_featured"]
-        @store.save
-    	redirect_to "/stores/#{@store.id}"
+        if  @store.save
+    	    redirect_to "/stores/#{@store.id}"
+        else
+            render 'new'
+        end
     end
 
     def show
@@ -33,7 +39,7 @@ class StoresController < ApplicationController
         #search the product in the certain store
         if params["keyword2"]
             k = params["keyword2"].strip
-            @products = @store.products.where("name LIKE '%#{k}%'")
+            @products = @store.products.where("name LIKE ?", "%#{k}%")
         else
             @products = @store.products
         end

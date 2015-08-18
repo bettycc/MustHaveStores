@@ -38,11 +38,11 @@
         <td>
           <% sum = 0 %>
           <% @order.products.each do |product|%>
-            <%= product.price%>
+            <%= number_to_currency product.price%>
             <%=", " %>
             <% sum = product.price + sum %>
           <% end %>  
-            Total: <%= sum %>
+            Total: <%= number_to_currency sum %>
         </td>
         <td><%= link_to "Edit", "/orders/#{@order.id}/edit" %></td>
         </tr>

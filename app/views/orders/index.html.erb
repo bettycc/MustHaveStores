@@ -4,33 +4,32 @@
 
 <h3>Order Lists:</h3>
 
-<% if session[:user_id] %>
+<!--<%# if session[:user_id] %>
     <small>
       <a class="btn btn-success pull-right" href="/orders/new">
         Add a New Order</a>
     </small>
-  <% else %>
+  <%# else %>
     <p>Sign In to Add Orders</p>
-  <% end %>
+  <%# end %>
 
-<p><%#= link_to "Add a new order", "/orders/new" %></p>
+<p><%#= link_to "Add a new order", "/orders/new" %></p>-->
 <!--Show all the orders -->
 <p><%= @orders.count %> orders shown.</p>
-
+<%= paginate @orders %>
 <!-- Add an search -->
 <nav>  
   <form action="/orders" role="search">   
-        <input value="<%= params[:keyword3] %>" name="keyword3" type="text" placeholder="Enter product name to search">
+        <input value="<%= params[:keyword3] %>" name="keyword3" type="text" placeholder="Enter order date to search">
         <button type="submit">Search</button>
   </form>
 </nav>
 
-  <ul>
-    
+  <!--<ul>  
     <li><a href="#">By Order Date (Latest)</a></li>
     <li><a href="#">By Order Date (Oldest)</a></li>
     <li><a href="#">By Customer Name (Alphabetically)</a></li>
-  </ul>
+  </ul>-->
 
 
 <table class='table table-striped'>
@@ -58,17 +57,17 @@
         <td>
           <% order.products.each do |product|%>
             <%= link_to product.name, "/products/#{product.id}"%>
-            <%=", " %>
+            <p> </p>
           <% end %>
         </td>
         <td>
           <% sum = 0 %>
           <% order.products.each do |product|%>
-            <%= link_to product.price, "/products/#{product.id}"%>
+            <%= number_to_currency product.price %>
             <%=", " %>
             <% sum = product.price + sum %>
           <% end %>  
-            Total: <%= sum %>
+            Total: <%= number_to_currency sum %>
         </td>
         <td><%= order.contact_info%></td>
         <td><%= order.bill_info%></td>

@@ -1,10 +1,20 @@
 <h4> Products index</h4>
 
+<% if session[:user_id] %>
+    <small>
+      <a class="btn btn-success pull-right" href="/products/new">
+        Add a New Product</a>
+    </small>
+  <% else %>
+    <p>Sign In to Add Products</p>
+  <% end %>
+
 <small>
-    <%= link_to "Add a new product", "/products/new" %>
+    <%#= link_to "Add a new product", "/products/new" %>
 </small>
 
 <p><%= @products.count %> products shown.</p>
+<%= paginate @products %>
 
 <table class='table table-striped'>
   <thead>
@@ -15,6 +25,7 @@
       <th>Price</th>
       <th>Release date</th>
       <th>Delete</th>
+      <th>Orders</th>
       
     </tr>
   <tbody>
@@ -23,9 +34,10 @@
         <td><%= link_to product.name, "/products/#{product.id}" %></td>
         <td><%= product.kind %></td>
         <td><%= link_to product.store.name, "/stores/#{product.store_id}"%></td>
-        <td><%= product.price %></td>
+        <td><%= number_to_currency product.price %></td>
         <td><%= product.release_date%></td>
         <td><%= link_to "Delete", "/products/#{product.id}", :method => "delete" %></td>
+        <td><%= link_to "Orders", "/orders"%></td>
        
       </tr>
     <% end %>

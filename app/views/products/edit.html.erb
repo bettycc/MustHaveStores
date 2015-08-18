@@ -17,14 +17,21 @@
 
 
     <p> Product Description: </p>
-    <p> <input type="text" name="description" value="<%= @product.description %>"> </p>
+    <textarea type="text" name="description" cols="80" rows="3" value="<%= @product.description%>"></textarea>
 
 <!-- Part2: left 1/3, description, price, overview, add to cart, by lists -->
 
 <h5> Overview: </h5>
 <ul>
+  <li> Store: 
+      <select name = "store_id">
+      <% Store.all.each do |store| %>
+        <option value="<%=store.id%>"><%=store.name%></option>
+      <% end %>
+      </select>
+  </li>
   <li> Product type: <input type="string" name="kind" value="<%= @product.kind%>" ></li>
-  <li> Product price: <input type="integer" name="price" value="<%= @product.price%>" ></li>
+  <li> Product price: <input type="integer" name="price" value="<%= number_to_currency @product.price%>" ></li>
   <li> Product designer: <input type="string" name="designer" value="<%= @product.designer %>"> </li>
   <li> Product Release Date: <input type="string" name="release_date" value="<%= @product.release_date%>"> </li>
   <li> Product number in stock: <input type="integer" name="in_stock" value="<%= @product.in_stock %>" > </li>

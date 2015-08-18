@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
   def destroy
     # sessions[:user_id] = nil
     reset_session
-    redirect_to root_url, notice: "See ya!"
+    redirect_to root_url, notice: "See you!"
   end
 
   def create

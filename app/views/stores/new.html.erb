@@ -2,12 +2,18 @@
 
 <h3>Add a new Store</h3>
 
+<% if @store.errors.any? %>
+<p>
+  "There seems to be a problem."
+</p>
+<% end %>
+
  <!-- <form action="/stores/create"> -->
  <%= form_tag "/stores" do%>
 
 	<div>
 		<label>Store name: </label>
-		<input type="string" name="name">
+		<input type="string" name="name" value="<%= @store.name %>">
 	</div>
 
     <div><!-- Create a selection, to pick the type of the store-->
