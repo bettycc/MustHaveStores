@@ -2,21 +2,26 @@
 
 <h3>Add a new Product</h3>
 
+<% if @product.errors.any? %>
+<p>
+  "There seems to be a problem."
+</p>
+<% end %>
 
 <!--<form action="/products/create">-->
 <%= form_tag products_path, method: "post" do %>
 
 <!-- Part1: right 2/3, pictures(big) -->
   <p>Product name: </p>
-  <p><input type="string" name="name" ></p>
+  <p><input type="string" name="name" value="<%= @product.name%>"></p>
     
-	<p> Product photo URL 1:<input type="text" name="photourl1" > </p>
-	<p> Product photo URL 2:<input type="text" name="photourl2" > </p>
-	<p> Product photo URL 3:<input type="text" name="photourl3" > </p>
+	<p> Product photo URL 1:<input type="text" name="photourl1" value="<%= @product.photourl1 %>"> </p>
+	<p> Product photo URL 2:<input type="text" name="photourl2" value="<%= @product.photourl2 %>"> </p>
+	<p> Product photo URL 3:<input type="text" name="photourl3" value="<%= @product.photourl3 %>"> </p>
    
 
     <p> Product Description: </p>
-    <textarea type="text" name="description" cols="80" rows="3" ></textarea>
+    <textarea type="text" name="description" cols="80" rows="3" value="<%= @product.description%>"></textarea>
 
 <!-- Part2: left 1/3, description, price, overview, add to cart, by lists -->
 
@@ -24,17 +29,17 @@
     <ul>
       <li> Store: 
       <select name = "store_id">
-      <% Store.all.each do |store| %>
+      <% Store.find_each do |store| %>
           <option value="<%=store.id%>"><%=store.name%></option>
       <% end %>
       </select>
       </li>
-      <li> Product type: <input type="string" name="kind"> </li>
-      <li> Product price: <input type="integer" name="price" > </li>
-      <li> Product designer: <input type="string" name="designer"> </li>
-      <li> Product Release Date: <input type="string" name="release_date" >  </li>
-      <li> Product number in stock: <input type="integer" name="in_stock" ></li>
-      <li> Product number sold: <input type="integer" name="sold"> </li>
+      <li> Product type: <input type="string" name="kind" value="<%= @product.kind%>"> </li>
+      <li> Product price: <input type="integer" name="price" value="<%= number_to_currency @product.price%>"> </li>
+      <li> Product designer: <input type="string" name="designer" value="<%= @product.designer %>"> </li>
+      <li> Product Release Date: <input type="string" name="release_date" value="<%= @product.release_date%>">  </li>
+      <li> Product number in stock: <input type="integer" name="in_stock" value="<%= @product.in_stock %>"></li>
+      <li> Product number sold: <input type="integer" name="sold" value="<%= @product.sold %>"> </li>
     </ul>
 
   <input type="submit" value="Add">

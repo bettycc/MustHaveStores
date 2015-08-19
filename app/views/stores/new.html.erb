@@ -28,23 +28,23 @@
 
     <div>
 		<label>Store Photo URL: </label>
-		<input type="text" name="photourl">
+		<input type="text" name="photourl" value="<%= @store.photourl%>">
 	</div>
 
 	<div>
 		<label>Store Contact information: </label>
-		<input type="string" name="contact_info">
+		<input type="string" name="contact_info" value="<%= @store.contact_info%>">
 	</div>
 
 	<div>
 		<label>Store open date: </label>
-		<input type="string" name="contact_info">
+		<input type="string" name="open_date" value="<%= @store.open_date%>">
 	</div>
 
 	
 	<div>
 		<label>Store description: </label>
-		<textarea type="text" name="description" cols="80" rows="3"></textarea>
+		<textarea type="text" name="description" cols="80" rows="3" value="<%= @store.description%>"></textarea>
 	</div>
         
 	<div>
