@@ -35,7 +35,7 @@ gem 'bcrypt', '~> 3.1.7'
 #gem 'ez'
 
 #heroku ask me to add to deploy the web
-#gem 'rails_12factor'
+gem 'rails_12factor'
 #gem 'ruby', '2.0.0'
 
 gem 'kaminari'
