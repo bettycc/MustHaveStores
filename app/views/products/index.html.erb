@@ -16,6 +16,13 @@
 <p><%= @products.count %> products shown.</p>
 <%= paginate @products %>
 
+<nav>  
+  <form action="/products" role="search">   
+        <input value="<%= params[:keyword4] %>" name="keyword4" type="text" placeholder="Enter product name ">
+        <button type="submit">Search</button>
+  </form>
+</nav>
+
 <table class='table table-striped'>
   <thead>
     <tr>

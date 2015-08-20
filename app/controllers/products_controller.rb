@@ -1,7 +1,14 @@
 class ProductsController < ApplicationController
 
 	def index
-        @products = Product.order("name asc")
+        if params["keyword4"].present?
+            k = params["keyword4"].strip
+            @products = Product.where("name LIKE ?","%#{k}%")
+            #@orders = Order.where(:date => params["k"],:name => params["k"])
+        else
+            @products = Product.order("name asc")
+        end
+        #@products = Product.order("name asc")
         @products = @products.page(params[:page]).per(5)
 	end
 
