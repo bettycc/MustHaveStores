@@ -39,7 +39,7 @@ gem 'rails_12factor'
 #gem 'ruby', '2.0.0'
 #Could not find gem 'ruby (= 2.0.0) ruby' in any of the gem sources listed in
 #your Gemfile or available on this machine.
-ruby ENV['CUSTOM_RUBY_VERSION'] || '2.0.0'
+ruby ENV['CUSTOM_RUBY_VERSION'] || '2.2.1'
 
 gem 'kaminari'
 
