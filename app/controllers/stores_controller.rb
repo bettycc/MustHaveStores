@@ -48,12 +48,13 @@ class StoresController < ApplicationController
         #    @products = @products.where(kind: params["kind"])
         #end
 
+
         #record the recent clicks
-        if session["history2"].nil?
-            session["history2"] = []
-            session["history2"] << @store.id
+        if session["historystore"].nil?
+            session["historystore"] = []
+            session["historystore"] << @store.id
         else
-            session["history2"] << @store.id
+            session["historystore"] << @store.id
         end
         
         
