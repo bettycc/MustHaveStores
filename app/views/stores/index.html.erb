@@ -10,16 +10,6 @@
 
 
 
- <% if session["historystore"] %>
-  
-  <div class="recent clearfix">
-    <h4>Your Recently Viewed Stores</h4>
-    <% recent_stores = Store.find(session["historystore"]) %>
-    <% recent_stores.each do |store| %>
-      <%= link_to image_tag(store.photourl, size: '20px'), store %>
-    <% end %>
-  </div>
-<% end %> 
 
 <% if session["history"] %>
   
