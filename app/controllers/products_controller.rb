@@ -9,15 +9,19 @@ class ProductsController < ApplicationController
             @products = Product.order("name asc")
         end
         #@products = Product.order("name asc")
-        @products = @products.page(params[:page]).per(5)
+        @products = @products.page(params[:page]).per(4)
 	end
 
 	def show
 		@product = Product.find_by(:id => params["id"])
 
         #record the recent clicks
-        #session["history2"] ||= []
-        #session["history2"] << @product.id
+        if session["history"].nil?
+            session["history"] = []
+            session["history"] << @product.id
+        else
+            session["history"] << @product.id
+        end
 	end
     
 
