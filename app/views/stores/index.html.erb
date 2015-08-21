@@ -9,8 +9,9 @@
   <% end %>
 
 
+
  <% if session["history2"] %>
-  <p><small><%= link_to "Clear My Viewing History", "#" %></small></p>
+  
   <div class="recent clearfix">
     <h4>Your Recently Viewed Stores</h4>
     <% recent_stores = Store.find(session["history2"]) %>
@@ -21,7 +22,7 @@
 <% end %> 
 
 <% if session["history"] %>
-  <p><small><%= link_to "Clear My Viewing History", "#" %></small></p>
+  
   <div class="recent clearfix">
     <h4>Your Recently Viewed Products</h4>
     <% recent_products = Product.find(session["history"]) %>
