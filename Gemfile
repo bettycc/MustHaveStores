@@ -33,6 +33,7 @@ gem 'bcrypt', '~> 3.1.7'
 # gem 'capistrano-rails', group: :development
 
 gem 'ez'
+gem 'quiet_assets'
 
 #gem 'ruby', '2.0.0'
 
