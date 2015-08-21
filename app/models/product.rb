@@ -6,7 +6,6 @@ class Product < ActiveRecord::Base
 	validates :name, presence: true, uniqueness: true
 	validates :price, presence: true
 	validates :designer, presence: true
-	#validates :description, presence: true
 	validates :photourl1, presence: true
 	#validates :photourl2, presence: true
 	#validates :photourl3, presence: true

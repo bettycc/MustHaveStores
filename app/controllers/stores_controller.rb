@@ -49,8 +49,12 @@ class StoresController < ApplicationController
         #end
 
         #record the recent clicks
-        #session["history"] ||= []
-        #session["history"] << @store.id
+        if session["history2"].nil?
+            session["history2"] = []
+            session["history2"] << @store.id
+        else
+            session["history2"] << @store.id
+        end
         
         
     end
