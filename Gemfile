@@ -32,27 +32,23 @@ gem 'bcrypt', '~> 3.1.7'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
-#gem 'ez'
+gem 'ez'
 
-#heroku ask me to add to deploy the web
-gem 'rails_12factor'
 #gem 'ruby', '2.0.0'
-#Could not find gem 'ruby (= 2.0.0) ruby' in any of the gem sources listed in
-#your Gemfile or available on this machine.
-ruby ENV['CUSTOM_RUBY_VERSION'] || '2.2.1'
 
 gem 'kaminari'
 
-group :development, :test do
+group :development do
 	gem 'sqlite3'
-	gem 'ez'
 end
 
 group :production do
 	gem 'pg'
+	#heroku ask me to add to deploy the web
+	gem 'rails_12factor'
 end
 
-group :development, :test do
+group :development do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 
