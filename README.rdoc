@@ -1,4 +1,7 @@
 == README
+Feature:
+Deployment the web app to HEROKU
+https://betty-cc-final.herokuapp.com/
 
 ####Test heroku 2nd time
 
