@@ -16,12 +16,12 @@ class ProductsController < ApplicationController
 		@product = Product.find_by(:id => params["id"])
 
         #record the recent clicks
-        if session["history"].nil?
-            session["history"] = []
-            session["history"] << @product.id
-        else
-            session["history"] << @product.id
-        end
+        #if session["history"].nil?
+        #    session["history"] = []
+        #    session["history"] << @product.id
+        #else
+        #    session["history"] << @product.id
+        #end
 	end
     
 
