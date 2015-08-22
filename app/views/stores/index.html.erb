@@ -11,16 +11,16 @@
 
 
 
-<%# if session["history"] %>
+<% if session["history"] %>
   
   <div class="recent clearfix">
-    <!--<h4>Your Recently Viewed Products</h4>-->
-    <%# recent_products = Product.find(session["history"]) %>
-    <%# recent_products.each do |product| %>
-      <%#= link_to image_tag(product.photourl1, height: '150px'), product %>
-    <%# end %>
+    <h4>Your Recently Viewed Products</h4>
+    <% recent_products = Product.find(session["history"]) %>
+    <% recent_products.each do |product| %>
+      <%= link_to image_tag(product.photourl1, height: '150px'), product %>
+    <% end %>
   </div>
-<%# end %> 
+<% end %> 
 
 <h1> </h1>
 <h1> </h1>

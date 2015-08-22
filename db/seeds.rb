@@ -6,10 +6,10 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Store.delete_all
-Product.delete_all
-Order.delete_all
-Orderitem.delete_all
+#Store.delete_all
+#Product.delete_all
+#Order.delete_all
+#Orderitem.delete_all
 
 store1 = Store.create(:name => "Susan Simonini", :kind => "Crafty", :description => "Modern Hand Made Ceramics", :contact_info => "111@gmail.com", :photourl => "https://img0.etsystatic.com/062/0/6648171/iusb_760x100.15481778_7obx.jpg",:open_date => "June 2015",:is_featured =>1)
 store2 = Store.create(:name => "LUSIX", :kind => "Jewlery", :description => "Gemstone Druzy Drusy Jewelry ", :contact_info => "222@gmail.com", :photourl => "https://img1.etsystatic.com/062/0/9239946/iusb_760x100.15516387_apkt.jpg",:open_date => "Mar 2014",:is_featured =>2)
