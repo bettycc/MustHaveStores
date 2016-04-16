@@ -1,8 +1,8 @@
-#MustHaveStore
+# MustHaveStore
 MustHaveStores is a web app implemented by Ruby on Rails where user can lists all their favorite stores.<br/>
-<br/>
-<br/>
-#Feature:<br/>
+<br />
+<br />
+# Feature:<br/>
 Ruby version<br/>
 System dependencies<br/>
 Configuration<br/>
