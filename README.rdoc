@@ -1,33 +1,19 @@
-== README
-Feature:
-Deployment the web app to HEROKU
-https://betty-cc-final.herokuapp.com/
-
-####Test heroku 2nd time
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+##MustHaveStore
+MustHaveStores is a web app implemented by Ruby on Rails where user can lists all their favorite stores.</br>
+##Feature:
+Ruby version</br>
+System dependencies</br>
+Configuration</br>
+Database creation</br>
+Database initialization</br>
+Services (job queues, cache servers, search engines, etc.)</br>
+Deployment the web app to HEROKU</br>
+https://betty-cc-final.herokuapp.com/</br>
 
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+
+
+
+
+
+
